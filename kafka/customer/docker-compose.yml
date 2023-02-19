@@ -1,0 +1,11 @@
+version: "3"
+  customer:
+    image: kafka-node-example
+    container_name: customer
+    networks:
+      - kafka-network
+    depends_on:
+
+networks:
+  kafka-network:
+    driver: bridge
