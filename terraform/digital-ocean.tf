@@ -12,38 +12,38 @@ resource "digitalocean_droplet" "kafka" {
   user_data = file("kafka-server.sh")
 }
 
-resource "digitalocean_firewall" "kafka-filewall" {
-  name = "kafka"
+# resource "digitalocean_firewall" "kafka-filewall" {
+#   name = "kafka"
 
-  droplet_ids = [digitalocean_droplet.kafka.id]
+#   droplet_ids = [digitalocean_droplet.kafka.id]
 
-  inbound_rule {
-    protocol         = "tcp"
-    port_range       = "22"
-    source_addresses = ["0.0.0.0/0", "::/0"]
-  }
+#   inbound_rule {
+#     protocol         = "tcp"
+#     port_range       = "22"
+#     source_addresses = ["0.0.0.0/0", "::/0"]
+#   }
 
-  inbound_rule {
-    protocol         = "tcp"
-    port_range       = "8080"
-    source_addresses = ["0.0.0.0/0", "::/0"]
-  }
+#   inbound_rule {
+#     protocol         = "tcp"
+#     port_range       = "8080"
+#     source_addresses = ["0.0.0.0/0", "::/0"]
+#   }
 
-  inbound_rule {
-    protocol         = "tcp"
-    port_range       = "9092"
-    source_addresses = ["0.0.0.0/0", "::/0"]
-  }
+#   inbound_rule {
+#     protocol         = "tcp"
+#     port_range       = "9092"
+#     source_addresses = ["0.0.0.0/0", "::/0"]
+#   }
 
-  inbound_rule {
-    protocol         = "tcp"
-    port_range       = "19092"
-    source_addresses = ["0.0.0.0/0", "::/0"]
-  }
+#   inbound_rule {
+#     protocol         = "tcp"
+#     port_range       = "19092"
+#     source_addresses = ["0.0.0.0/0", "::/0"]
+#   }
 
-  inbound_rule {
-    protocol         = "tcp"
-    port_range       = "29092"
-    source_addresses = ["0.0.0.0/0", "::/0"]
-  }
-}
+#   inbound_rule {
+#     protocol         = "tcp"
+#     port_range       = "29092"
+#     source_addresses = ["0.0.0.0/0", "::/0"]
+#   }
+# }

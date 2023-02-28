@@ -1,8 +1,5 @@
 #!/bin/bash
 
-dig @8.8.8.8 get.docker.com
-dig @8.8.4.4 get.docker.com
-
 # INSTALL DOCKER
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
@@ -56,6 +53,7 @@ services:
     container_name: kafka-ui
     ports:
       - 8080:8080
+      - 82:8080
     restart: always
     environment:
       KAFKA_CLUSTERS_0_NAME: local
@@ -67,18 +65,18 @@ services:
     networks:
       - kafka-network
 
-  proxy:
-    image: 'jc21/nginx-proxy-manager:latest'
-    restart: unless-stopped
-    ports:
-      - 80:80
-      - 81:81
-      - 443:443
-    volumes:
-      - ./data:/data
-      - ./letsencrypt:/etc/letsencrypt
-    networks:
-      - kafka-network
+  # proxy:
+  #   image: 'jc21/nginx-proxy-manager:latest'
+  #   restart: unless-stopped
+  #   ports:
+  #     - 80:80
+  #     - 81:81
+  #     - 443:443
+  #   volumes:
+  #     - ./data:/data
+  #     - ./letsencrypt:/etc/letsencrypt
+  #   networks:
+  #     - kafka-network
   
 networks:
   kafka-network:
