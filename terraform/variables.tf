@@ -1,11 +1,5 @@
-variable "do_token" {
-  type = string
-}
+variable "do_token" {}
 
-variable "ssh_public_key" {
-  description = "Public key to connect to instance through SSH"
-}
+variable "ssh_public_key" {}
 
-variable "ssh_private_key" {
-  description = "Private key to connect to instance through SSH"
-}
+variable "ssh_private_key" {}
