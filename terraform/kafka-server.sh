@@ -20,6 +20,8 @@ services:
   zookeeper:
     image: confluentinc/cp-zookeeper:7.3.0
     container_name: zookeeper
+    ports:
+      - 2181:2181
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
@@ -64,19 +66,6 @@ services:
       - zookeeper
     networks:
       - kafka-network
-
-  # proxy:
-  #   image: 'jc21/nginx-proxy-manager:latest'
-  #   restart: unless-stopped
-  #   ports:
-  #     - 80:80
-  #     - 81:81
-  #     - 443:443
-  #   volumes:
-  #     - ./data:/data
-  #     - ./letsencrypt:/etc/letsencrypt
-  #   networks:
-  #     - kafka-network
   
 networks:
   kafka-network:
