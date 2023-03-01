@@ -5,6 +5,6 @@ WORKDIR /app
 COPY package.json .
 RUN npm install
 
-COPY consumer.js .
+COPY index.js .
 
-CMD ["node", "customer.js"]
+CMD ["node", "index.js"]
