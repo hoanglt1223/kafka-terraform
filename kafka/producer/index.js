@@ -1,7 +1,7 @@
 const kafka = require("kafka-node");
 
 const client = new kafka.KafkaClient({
-  kafkaHost: "206.189.32.152:9093",
+  kafkaHost: "134.209.110.130:9094",
   connectTimeout: 10000,
   requestTimeout: 10000,
 });
