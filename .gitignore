@@ -86,3 +86,11 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+
+terraform/terraform.tfvars
+
+terraform/.terraform/
+
+terraform/terraform.tfstate
+
+terraform/.terraform.lock.hcl
